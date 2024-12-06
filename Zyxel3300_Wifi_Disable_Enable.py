@@ -21,20 +21,20 @@ def check_wifi_status(shell):
 def toggle_wifi(shell, action):
     if action == "disable":
         shell.send("wlctl radio off\n")  # Отключение Wi-Fi
-        print("Wi-Fi выключен.")
+        print("Wi-Fi disable.")
     time.sleep(1)  # Ждем завершения операции
 
 def handle_wifi_button(shell):
     # Проверяем текущий статус Wi-Fi
     wifi_status = check_wifi_status(shell)
-    print("Текущий статус Wi-Fi:", wifi_status)
+    print("Status Wi-Fi now:", wifi_status)
 
     # Если Wi-Fi включен (может быть 0x0001 или 0x0000)
     if wifi_status in ["0x0001", "0x0000"]:
         print("Wi-Fi включен. Отключаем радио...")
         toggle_wifi(shell, "disable")  # Отключаем Wi-Fi
     else:
-        print("Wi-Fi уже отключен.")
+        print("Wi-Fi also disable.")
 
     # Проверяем статус после изменения
     wifi_status_after = check_wifi_status(shell)
@@ -81,7 +81,7 @@ try:
     # Подготовка данных для сохранения в JSON
     data = {
         "Статус до изменения": wifi_status_before,
-        "Статус после изменения": wifi_status_after + "  Sönülü",
+        "Статус после изменения": wifi_status_after + "  off",
         "Router Ip": router_ip
     }
     
