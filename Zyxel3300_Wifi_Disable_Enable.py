@@ -3,7 +3,7 @@ import time
 import json  # Импортируем модуль для работы с JSON
 import os  # Импортируем модуль для работы с файловой системой
 
-router_ip = "172.16.40.1"
+router_ip = "192.168.1.4"
 username = "test"
 password = "Test123456@"
 output_file = r"C:\Users\i.huseynov\Desktop\scrp\wifi_disable.json"  # Путь к файлу JSON
